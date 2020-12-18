@@ -8,14 +8,14 @@ pipelines:
   default:
     - parallel:
       - step:
-          name: 'Build and Test'
+          name: 'Install Packages'
+          script:
+            - npm run install
+            # - echo "Your build and test goes here..."
+      - step:
+          name: 'Build'
           script:
             - npm run build
-            # - echo "Your build and test goes here..."
-      # - step:
-      #     name: 'Lint'
-      #     script:
-      #       - echo "Your linting goes here..."
       # - step:
       #     name: 'Security scan'
       #     script:
