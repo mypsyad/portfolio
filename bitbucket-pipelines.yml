@@ -44,8 +44,7 @@ pipelines:
             variables:
               BITBUCKET_USERNAME: $BITBUCKET_USERNAME
               BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
-              # FILENAME: ./dist
-              ZIP_FILE: dist.tar.gz
+              FILENAME: dist.tar.gz
               WAIT: "true"
     - step:
         name: 'Deployment to Production'
