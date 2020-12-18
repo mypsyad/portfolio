@@ -33,7 +33,7 @@ pipelines:
           - npm run build
           - npm run generate
         artifacts:
-          - dist/**
+          - dist**
     - step:
         name: 'Deployment to Staging'
         deployment: staging
@@ -43,7 +43,7 @@ pipelines:
             variables:
               BITBUCKET_USERNAME: $BITBUCKET_USERNAME
               BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
-              FILENAME: dist/* .
+              IMAGE: dist
           # - curl -X POST --user "${BITBUCKET_USERNAME}:${BITBUCKET_APP_PASSWORD}" "https://api.bitbucket.org/2.0/repositories/mypsyad/portfolio/downloads" -O "dist/"
     - step:
         name: 'Deployment to Production'
