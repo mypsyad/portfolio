@@ -25,7 +25,7 @@ pipelines:
     - step:
           name: 'Install Packages'
           script:
-            - npm run install
+            - npm install
     - step:
         name: 'Build'
         script:
