@@ -88,3 +88,7 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Build Specs
+.travis.yml
+bitbucket-pipelines.yml
