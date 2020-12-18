@@ -40,6 +40,11 @@ pipelines:
         deployment: staging
         script:
           - echo "Your deployment to staging script goes here..."
+          - cd dist
+          - git remote add origin https://mypsyad@bitbucket.org/mypsyad/mypsyad.bitbucket.io.git
+          - git add .
+          - git commit -m "update"
+          - git push origin master
     - step:
         name: 'Deployment to Production'
         deployment: production
