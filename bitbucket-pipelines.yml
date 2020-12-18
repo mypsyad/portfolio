@@ -29,7 +29,7 @@ pipelines:
     - step:
         name: 'Build'
         script:
-          - npm run build
+          - CI=false npm run build
     - step:
         name: 'Deployment to Staging'
         deployment: staging
