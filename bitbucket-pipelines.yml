@@ -6,22 +6,30 @@ image: atlassian/default-image:2
 
 pipelines:
   default:
-    - parallel:
-      - step:
-          name: 'Install Packages'
-          script:
-            - npm run install
-            # - echo "Your build and test goes here..."
-      - step:
-          name: 'Build'
-          script:
-            - npm run build
+    # - parallel:
+    #   - step:
+    #       name: 'Install Packages'
+    #       script:
+    #         - npm run install
+    #         # - echo "Your build and test goes here..."
+    #   - step:
+    #       name: 'Build'
+    #       script:
+    #         - npm run build
       # - step:
       #     name: 'Security scan'
       #     script:
       #       - echo "Your security scan goes here..."
 
     # The following deployment steps will be executed for each pipeline run. To configure your steps and conditionally deploy see https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
+    - step:
+          name: 'Install Packages'
+          script:
+            - npm run install
+    - step:
+        name: 'Build'
+        script:
+          - npm run build
     - step:
         name: 'Deployment to Staging'
         deployment: staging
