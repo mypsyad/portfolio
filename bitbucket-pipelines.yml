@@ -32,10 +32,8 @@ pipelines:
           - npm run lint
           - npm run build
           - npm run generate
-    # - step:
-    #     name: 'Build'
-    #     script:
-    #       - npm run build
+        artifacts:
+          - dist/**
     - step:
         name: 'Deployment to Staging'
         deployment: staging
