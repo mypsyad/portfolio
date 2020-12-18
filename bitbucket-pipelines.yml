@@ -39,7 +39,7 @@ pipelines:
         deployment: staging
         script:
           - echo "Your deployment to staging script goes here..."
-          - cat dist/
+          - curl -X POST "https://${BITBUCKET_USERNAME}:${BITBUCKET_APP_PASSWORD}@api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}/downloads" --form files=@"dist/"
     - step:
         name: 'Deployment to Production'
         deployment: production
