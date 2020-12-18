@@ -44,7 +44,8 @@ pipelines:
           #     BITBUCKET_USERNAME: $BITBUCKET_USERNAME
           #     BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
           #     ZIP_FILE: dist.zip
-          - curl -X POST --user "${BITBUCKET_USERNAME}:${BITBUCKET_APP_PASSWORD}" "https://api.bitbucket.org/2.0/repositories/mypsyad/portfolio/downloads" -D "dist"
+          - npm install curl
+          - curl -X POST --user "${BITBUCKET_USERNAME}:${BITBUCKET_APP_PASSWORD}" "https://api.bitbucket.org/2.0/repositories/mypsyad/portfolio/downloads" -F ./dist
     - step:
         name: 'Deployment to Production'
         deployment: production
