@@ -28,7 +28,9 @@ pipelines:
           - node
         script:
           - npm install
+          - npm run lint
           - npm run build
+          - npm run generate
     # - step:
     #     name: 'Build'
     #     script:
