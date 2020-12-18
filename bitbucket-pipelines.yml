@@ -32,7 +32,6 @@ pipelines:
           - npm run lint
           - npm run build
           - npm run generate
-          - npm run deploy
         artifacts:
           - dist**
     - step:
