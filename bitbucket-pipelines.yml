@@ -39,6 +39,7 @@ pipelines:
         deployment: staging
         script:
           - echo "Your deployment to staging script goes here..."
+          - cat dist/
     - step:
         name: 'Deployment to Production'
         deployment: production
