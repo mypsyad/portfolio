@@ -23,16 +23,16 @@ pipelines:
 
     # The following deployment steps will be executed for each pipeline run. To configure your steps and conditionally deploy see https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
     - step:
-        name: 'Install Packages'
+        name: 'Install Packages and Build'
         caches:
-          - node-custom
+          - node
         script:
-          - if [ ! -d "node_modules" ]; then npm install; fi
-          # - npm install
-    - step:
-        name: 'Build'
-        script:
+          - npm install
           - npm run build
+    # - step:
+    #     name: 'Build'
+    #     script:
+    #       - npm run build
     - step:
         name: 'Deployment to Staging'
         deployment: staging
@@ -44,7 +44,3 @@ pipelines:
         trigger: 'manual'
         script:
           - echo "Your deployment to production script goes here..."
-
-definitions:
-  caches:
-    node-custom: public/node_modules
