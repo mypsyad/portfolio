@@ -39,11 +39,14 @@ pipelines:
         deployment: staging
         script:
           - echo "Your deployment to staging script goes here..."
+          - zip dist.zip -r ./dist
           - pipe: atlassian/bitbucket-upload-file:0.1.2
             variables:
               BITBUCKET_USERNAME: $BITBUCKET_USERNAME
               BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
-              FILENAME: ./dist
+              # FILENAME: ./dist
+              ZIP_FILE: dist.zip
+              WAIT: true
     - step:
         name: 'Deployment to Production'
         deployment: production
