@@ -39,11 +39,12 @@ pipelines:
         deployment: staging
         script:
           - echo "Your deployment to staging script goes here..."
+          - zip dist.zip dist/**
           - pipe: atlassian/bitbucket-upload-file:0.1.2
             variables:
               BITBUCKET_USERNAME: $BITBUCKET_USERNAME
               BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
-              FILENAME: dist/**
+              ZIP_FILE: dist.zip
           # - curl -X POST --user "${BITBUCKET_USERNAME}:${BITBUCKET_APP_PASSWORD}" "https://api.bitbucket.org/2.0/repositories/mypsyad/portfolio/downloads" -O "dist/"
     - step:
         name: 'Deployment to Production'
